@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+}
+
+main{
+  margin-left: 240px;
+  font-size: 20px;
+  padding: 0px 10px;
+}
+
+h2{
+  padding: 1em 0 0 0;
+}
+
+.text{
+  text-align: left;
+  align-items: center;
+  text-indent: 40px;
+  margin: 0px 150px;
+}
+
+.App-banner{
+  margin: 40px 0 12px 30px;
+}
+
+#introducao{
+  text-align: center;
+}
+
+.transmissão-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.icone-p{
+  text-align: center;
+  font-size: 1.25rem;
+  color: #0c7af3;
+  font-weight: bold;
+  width: 290px;
+  margin-top: 26px;
+}
+
+.container-geral{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.container{
+  background-color: #ED6495;
+  border-radius: 20px;
+  position: relative;
+  width: 40%;
+  margin: 2em;
+}
+
+.container p{
+  padding: 0 30px;
+  text-align: left;
+  font-size: 1.56rem;
+}
+
+.sintomas{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.box{
+  background-color: #95ED64;
+  text-align: center;
+  height: 200px;
+  width: 300px;
+  border-radius: 20px;
+  position: relative;
+  padding: 10px;
+  margin: 20px;
+}
+
+.sintomas p{
+  width: 70%;
+  margin: 3em 2em;
+  text-align: left;
+  font-size: 1.56rem;
+  line-height: 1.3;
+}
