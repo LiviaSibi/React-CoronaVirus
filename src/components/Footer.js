@@ -16,7 +16,7 @@ const stylediv = {
 
 const styleFooter = {
     backgroundColor: '#363636',
-    borderTop: '45px solid #86C9F5',
+    borderTop: '45px solid #90F6EE',
     padding: '25px 0px',
     marginLeft: '260px'
 };

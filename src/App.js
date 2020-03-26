@@ -3,25 +3,26 @@ import './App.css';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Home';
 import FAQ from './FAQ';
+import quiz from './quiz';
+import Header from './components/Header.js';
 
-
-class App extends React.Component {
-  render(){
-    return (
+function App() {
+  return (
+    <div className="App">
       <Router>
-        <div className="App">
-          <Switch>
-            <Route strict path='/home/'>
-              <Home/>
-            </Route>
-            <Route exact path='/faq'>
-              <FAQ/>
-            </Route>
-          </Switch>
-        </div>
+        <Header/>
+
+        <Switch>
+          <Route strict path='/home' component={Home} />
+          
+          <Route exact path="/faq" component={FAQ}/>
+
+          <Route exact path="/quiz" component={quiz}/>
+        </Switch>
       </Router>
+    </div>
     );
-    }
-  }
+}
+
 
 export default App;

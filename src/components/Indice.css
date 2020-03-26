@@ -1,10 +1,12 @@
+html{scroll-behavior:smooth;}
+
 .indice-ul {
     width: 70%;
     font-weight: 500;
     text-align: left;
     align-items: center;
     margin: 0px 150px;
-    background-color: #e4f3fd;
+    background-color: #fff;
     border: 1px solid #000;
     border-radius: 20px;
 }
@@ -13,9 +15,7 @@
 }
 
 .indice-li:hover {
-    background-color: #86C9F5;
-    color: #F157B4;
-    
+    background-color: #F7BEFB;
 }
 
 .indice-li:first-child:hover{
@@ -37,13 +37,18 @@
 .faq-h1{
     margin: -1px 0;
     padding: 1em 0;
+    text-decoration: underline;
+}
+
+.faq-h2{
+    color: #ad0e6e;
 }
 
 .question{
     text-align: left;
     align-items: center;
-    margin: 0px 150px;
-    width: 80%;
+    margin: 50px 160px;
+    width: 70%;
 }
 
 .question p{

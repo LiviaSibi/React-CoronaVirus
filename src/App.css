@@ -1,3 +1,6 @@
+html{scroll-behavior:smooth;}
+
+
 .App {
   text-align: center;
 }
@@ -6,11 +9,11 @@ main{
   margin-left: 260px;
   font-size: 20px;
   padding: 0px 10px;
-  background-color: #e4f3fd;
+  background-color: #eefefd;
 }
 
 h2{
-  padding: 1em 0 0 0;
+  padding: 1em 0 1em 0;
   margin: -1px 0;
 }
 
@@ -39,7 +42,7 @@ h2{
 .icone-p{
   text-align: center;
   font-size: 1.20rem;
-  color: #1285D0;
+  color: #0D7DD2;
   font-weight: bold;
   width: 290px;
   margin-top: 26px;
