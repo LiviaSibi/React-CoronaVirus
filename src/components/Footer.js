@@ -8,7 +8,7 @@ const stylep = {
 const stylediv = {
     borderRadius: '10px',
     padding: '10px',
-    margin: '0px 120px',
+    margin: '0px 80px',
     textAlign: 'center',
     backgroundColor: '#4d4d4d',
     fontSize: '16px'
@@ -16,8 +16,9 @@ const stylediv = {
 
 const styleFooter = {
     backgroundColor: '#363636',
-    borderTop: '45px solid #fff',
-    padding: '25px 0px'
+    borderTop: '45px solid #86C9F5',
+    padding: '25px 0px',
+    marginLeft: '260px'
 };
 
 class Footer extends React.Component{

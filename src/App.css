@@ -3,13 +3,15 @@
 }
 
 main{
-  margin-left: 240px;
+  margin-left: 260px;
   font-size: 20px;
   padding: 0px 10px;
+  background-color: #e4f3fd;
 }
 
 h2{
   padding: 1em 0 0 0;
+  margin: -1px 0;
 }
 
 .text{
@@ -20,7 +22,8 @@ h2{
 }
 
 .App-banner{
-  margin: 40px 0 12px 30px;
+  margin: 25px 0 12px 30px;
+  width: 55%;
 }
 
 #introducao{
@@ -35,8 +38,8 @@ h2{
 
 .icone-p{
   text-align: center;
-  font-size: 1.25rem;
-  color: #0c7af3;
+  font-size: 1.20rem;
+  color: #1285D0;
   font-weight: bold;
   width: 290px;
   margin-top: 26px;
@@ -49,7 +52,7 @@ h2{
 }
 
 .container{
-  background-color: #ED6495;
+  background-color: #F586C9;
   border-radius: 20px;
   position: relative;
   width: 40%;
@@ -59,7 +62,7 @@ h2{
 .container p{
   padding: 0 30px;
   text-align: left;
-  font-size: 1.56rem;
+  font-size: 1.52rem;
 }
 
 .sintomas{
@@ -69,7 +72,7 @@ h2{
 }
 
 .box{
-  background-color: #95ED64;
+  background-color: #8EF586;
   text-align: center;
   height: 200px;
   width: 300px;
@@ -83,6 +86,17 @@ h2{
   width: 70%;
   margin: 3em 2em;
   text-align: left;
-  font-size: 1.56rem;
+  font-size: 1.52rem;
   line-height: 1.3;
+}
+
+
+@media(max-width: 970px){
+  .text{
+    margin: 0px 110px;
+  }
+
+  .container{
+    width: 60%;
+  }
 }
