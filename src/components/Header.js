@@ -40,7 +40,7 @@ class Header extends React.Component{
                     <nav className="nav">
                         <Link to='/home'><h1 style={{fontSize: '2.0rem'}}><FontAwesomeIcon icon={faVirus}/> Coronavírus</h1></Link>
                         
-                        <div  className="dropdown" style = {{width:"240px"}} >
+                        <div  className="dropdown" >
                             <div className="button" onClick={this.showMenu}> Sobre o Vírus </div>
                             { this.state.displayMenu ? (
                                 <ul>
@@ -48,6 +48,8 @@ class Header extends React.Component{
                                     <li><HashLink to='/home#transmissao'> Transmissão </HashLink></li>
                                     <li><HashLink to='/home#prevencao'> Prevenção </HashLink></li>
                                     <li><HashLink to='/home#sintomas'> Sintomas </HashLink></li>
+                                    <li className="mobile"><Link to='/faq'>Perguntas & Respostas</Link></li>
+                                    <li className="mobile"><Link to='/quiz'>O que fazer?</Link></li>
                                 </ul>
                             ) : ( null )
                             }
@@ -58,6 +60,7 @@ class Header extends React.Component{
                                 <li className="li"><Link to='/quiz'>O que fazer?</Link></li>
                             </ul>
                         </div>
+                        
                     </nav>
                 </header>
             </div>

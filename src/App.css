@@ -116,3 +116,13 @@ h2{
     width: 60%;
   }
 }
+
+@media(max-width: 650px){
+  .text{
+    margin: 0px 50px;
+  }
+
+  .container{
+    width: 60%;
+  }
+}

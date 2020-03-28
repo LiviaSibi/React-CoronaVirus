@@ -55,3 +55,36 @@ html{scroll-behavior:smooth;}
 .question p{
     text-indent: 0px;
 }
+
+@media(max-width: 1180px){
+    .indice-ul{
+        margin: 0px 150px;
+        width: 70%;
+    }
+    .question{
+        margin: 50px 230px;
+        width: 63%;
+    }
+}
+
+@media(max-width: 1070px){
+    .indice-ul{
+        margin: 0px 90px;
+        width: 80%;
+    }
+    .question{
+        margin: 50px 140px;
+        width: 70%;
+    }
+}
+
+@media(max-width: 900px){
+    .indice-ul{
+        margin: 0px 0px;
+        width: 100%;
+    }
+    .question{
+        margin: 50px 50px;
+        width: 90%;
+    }
+}

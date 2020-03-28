@@ -74,6 +74,7 @@ class Quiz extends React.Component{
                     {" "}
                     Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
                     <br />
+                    <br />
                     A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
                 </div>
             </div>
@@ -86,6 +87,7 @@ class Quiz extends React.Component{
                     {" "}
                     Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
                     <br />
+                    <br />
                     A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
                 </div>
             </div>        }
@@ -97,6 +99,7 @@ class Quiz extends React.Component{
                     {" "}
                     Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
                     <br />
+                    <br />
                     A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
                 </div>
             </div>        }
@@ -107,6 +110,7 @@ class Quiz extends React.Component{
                 <div className="content">
                     {" "}
                     Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
+                    <br />
                     <br />
                     A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
                 </div>
@@ -120,6 +124,7 @@ class Quiz extends React.Component{
                     {" "}
                     Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
                     <br />
+                    <br />
                     A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
                 </div>
             </div>        }
@@ -130,6 +135,7 @@ class Quiz extends React.Component{
                 <div className="content">
                     {" "}
                     Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
+                    <br />
                     <br />
                     A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
                 </div>
@@ -143,7 +149,9 @@ class Quiz extends React.Component{
                     {" "}
                     Você não aparenta ter dos nenhum sintomas que causam o coronavírus!
                     <br />
+                    <br />
                     Mesmo que não possua nenhum sintomas não deve relaxar! O vírus é altamente contagioso e merece sua atenção e cuidado. Siga as orientações recomendadas.
+                    <br />
                     <br/>
                     Cuide de sua saúde e de quem está próximo de você.
                 </div>
@@ -178,6 +186,7 @@ class Quiz extends React.Component{
                 <div className="content">
                     {" "}
                     Você pode estar apenas com uma infecção leve e tem baixa probabilidade de ser causada pelo coronavírus. Você pode tratá-la em casa mesmo!
+                    <br />
                     <br />
                     Apenas sigas as orientações recomendadas e em caso piora procure uma Unidade de Saúde perto da casa.
                 </div>
@@ -220,10 +229,10 @@ class Quiz extends React.Component{
         };
 
         return(
-            <div className="quiz" style={{textAlign: 'center'}}>
+            <div className="quiz" style={{textAlign: 'center', zIndex: '1'}}>
                 <main>
                     <h1 style={{fontFamily: 'Roboto, sansSerif', padding:'70px 0px 30px 0px'}}>O que fazer?</h1>
-                    <h2 style={{margin: '-1px 250px'}}>Devo procurar uma unidade médica?</h2>
+                    <h2 className='quiz-h2'>Devo procurar uma unidade médica?</h2>
                     <p className='text1'>Abaixo teremos um pequeno questionario relacionado ao coronavírus para identificar se você precisa procurar uma 
                         unidade médica ou se apenas tomar alguns cuidados em sua casa.</p>
 
@@ -260,7 +269,7 @@ class Quiz extends React.Component{
                                 <div className='inputGroup'>
                                 <label htmlFor="outrosSintomas">Teve algum desses outros sintomas?
                                 <br/>
-                                    <input name="outrosSintomas" className="option-input radio" id="1" type="radio" value="sintomas-graves" checked={this.state.selectedOutrosSintomas === 'sintomas-graves'} /> Vomito ou falta de ar ou dificuldade de respirar ou dedos azulados ou palidos 
+                                    <input name="outrosSintomas" className="option-input radio" id="1" type="radio" value="sintomas-graves" checked={this.state.selectedOutrosSintomas === 'sintomas-graves'} /> Vomito, falta de ar ou dificuldade de respirar, dedos azulados ou palidos 
                                     <br/>
                                     <input name="outrosSintomas" className="option-input radio" id="2" type="radio" value="nenhum-outro" checked={this.state.selectedOutrosSintomas === 'nenhum-outro'} /> Não tive nenhum outro sintomas 
                                 </label>
