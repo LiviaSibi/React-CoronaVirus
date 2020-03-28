@@ -1,171 +1,307 @@
 import React from 'react';
 import Footer from './components/Footer.js';
+import Popup from "reactjs-popup";
+import './quiz.css';
 
 class Quiz extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            febre:[
-                {id: 1, value: "sim", isChecked: false},
-                {id: 2, value: "nao", isChecked: false}
-            ],
-            
-            sintomas:[
-                {id: 1, value: "coriza", isChecked: false},
-                {id: 2, value: "nariz-entupido", isChecked: false},
-                {id: 3, value: "cansaco", isChecked: false},
-                {id: 4, value: "tosse", isChecked: false},
-                {id: 5, value: "dor-de-cabeca", isChecked: false},
-                {id: 6, value: "dor-corpo", isChecked: false},
-                {id: 6, value: "diarreia-dor", isChecked: false},
-                {id: 6, value: "perda-olfato", isChecked: false},
-                {id: 6, value: "perda-paladar", isChecked: false}
-            ],
-
-            medicamento:[
-                {id: 1, value: "sim", isChecked: false},
-                {id: 2, value: "nao", isChecked: false}
-            ],
-            melhora:[
-                {id: 1, value: "sim", isChecked: false},
-                {id: 2, value: "nao", isChecked: false}
-            ],
-            outrosSintomas:[
-                {id: 1, value: "sintomas-grave", isChecked: false},
-                {id: 2, value: "nenhum-outro", isChecked: false}
-            ],
-            grupoRisco:[
-                {id: 1, value: "sim", isChecked: false},
-                {id: 2, value: "nao", isChecked: false}
-            ]
+            selectedFebre: '',
+            selectedSintomas: '',
+            selectedMedicamento: '',
+            selectedMelhora: '',
+            selectedOutrosSintomas: '',
+            selectedGrupodeRisco: ''
         };
     }
 
-    handleCheckElement = (event) => {
-        let febre = this.state.febre
-        febre.forEach(febre => {
-            if (febre.value === event.target.value)
-                febre.isChecked =  event.target.checked
-        })
-        this.setState({febre: febre});
+    handleFebreChange=(event)=> {
+        console.log(event.target.value);
+        this.setState({
+            selectedFebre: event.target.value
+        });
+    };
 
-        let sintomas = this.state.sintomas
-        sintomas.forEach(sintomas => {
-            if (sintomas.value === event.target.value)
-            sintomas.isChecked =  event.target.checked
-        })
-        this.setState({sintomas: sintomas});
+    handleSintomasChange=(event)=> {
+        console.log(event.target.value);
+        this.setState({
+            selectedSintomas: event.target.value
+        });
+    };
 
-        let medicamento = this.state.medicamento
-        medicamento.forEach(medicamento => {
-            if (medicamento.value === event.target.value)
-            medicamento.isChecked =  event.target.checked
-        })
-        this.setState({medicamento: medicamento});
+    handleMedicamentoChange=(event)=> {
+        console.log(event.target.value);
+        this.setState({
+            selectedMedicamento: event.target.value
+        });
+    };
 
-        let melhora = this.state.melhora
-        melhora.forEach(melhora => {
-            if (melhora.value === event.target.value)
-            melhora.isChecked =  event.target.checked
-        })
-        this.setState({melhora: melhora});
+    handleMelhoraChange=(event)=> {
+        console.log(event.target.value);
+        this.setState({
+            selectedMelhora: event.target.value
+        });
+    };
 
-        let outrosSintomas = this.state.outrosSintomas
-        outrosSintomas.forEach(outrosSintomas => {
-            if (outrosSintomas.value === event.target.value)
-            outrosSintomas.isChecked =  event.target.checked
-        })
-        this.setState({outrosSintomas: outrosSintomas});
+    handleOutrosSintomasChange=(event)=> {
+        console.log(event.target.value);
+        this.setState({
+            selectedOutrosSintomas: event.target.value
+        });
+    };
 
-        let grupoRisco = this.state.grupoRisco
-        grupoRisco.forEach(grupoRisco => {
-            if (grupoRisco.value === event.target.value)
-            grupoRisco.isChecked =  event.target.checked
-        })
-        this.setState({grupoRisco: grupoRisco});
-    }
-
+    handleGrupodeRiscoChange=(event)=> {
+        console.log(event.target.value);
+        this.setState({
+            selectedGrupodeRisco: event.target.value
+        });
+    };
 
     render(){
-        let melhora = '';
-        if (this.state.medicamento.selectedOption) {
-            melhora = 
-            <label for="melhora">Você melhorou?
-            <br/>
-                <input name="melhora" id="1" type="radio" value="sim" checked={this.state.melhora.isChecked} onClick={this.handleCheckElement}/> Sim 
-                <input name="melhora" id="2" type="radio" value="nao" checked={this.state.melhora.isChecked} onClick={this.handleCheckElement}/> Não 
-            </label>;
-        } else {
-            melhora = '';
+        let mensagem = '';
+        let febre = this.state.selectedFebre;
+        let sintomas = this.state.selectedSintomas;
+        let medicamento = this.state.selectedMedicamento;
+        let melhora = this.state.selectedMelhora;
+        let outros = this.state.selectedOutrosSintomas;
+        let grupo = this.state.selectedGrupodeRisco;
+        if(febre === 'sim' && outros === 'sintomas-graves' && grupo === 'sim'){
+            mensagem = 
+            <div>
+                <div className="header"> Caso Suspeito </div>
+                <div className="content">
+                    {" "}
+                    Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
+                    <br />
+                    A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
+                </div>
+            </div>
+        }
+        else if(febre === 'sim' && sintomas === 'sim' && medicamento === 'sim' && melhora === 'nao' && outros === 'sintomas-graves'){
+            mensagem = 
+            <div>
+            <div className="header"> Caso Suspeito </div>
+                <div className="content">
+                    {" "}
+                    Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
+                    <br />
+                    A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
+                </div>
+            </div>        }
+        else if(sintomas === 'sim' && medicamento === 'sim' && outros === 'sintomas-graves'){
+            mensagem = 
+            <div>
+            <div className="header"> Caso Suspeito </div>
+                <div className="content">
+                    {" "}
+                    Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
+                    <br />
+                    A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
+                </div>
+            </div>        }
+        else if(sintomas === 'sim' && medicamento === 'sim' && melhora === 'nao'){
+            mensagem = 
+            <div>
+            <div className="header"> Fique alerta! </div>
+                <div className="content">
+                    {" "}
+                    Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
+                    <br />
+                    A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
+                </div>
+            </div>
+        }
+        else if(febre === 'sim' && sintomas === 'sim'){
+            mensagem = 
+            <div>
+            <div className="header"> Fique alerta! </div>
+                <div className="content">
+                    {" "}
+                    Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
+                    <br />
+                    A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
+                </div>
+            </div>        }
+        else if(sintomas === 'sim' && outros === 'sintomas-grave'){
+            mensagem = 
+            <div>
+            <div className="header"> Fique alerta! </div>
+                <div className="content">
+                    {" "}
+                    Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
+                    <br />
+                    A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
+                </div>
+            </div>        
+        }
+        else if(febre === 'nao' && sintomas === 'nao' && outros === 'nenhum-outro'){
+            mensagem = 
+            <div>
+            <div className="header"> Tudo bem! </div>
+                <div className="content">
+                    {" "}
+                    Você não aparenta ter dos nenhum sintomas que causam o coronavírus!
+                    <br />
+                    Mesmo que não possua nenhum sintomas não deve relaxar! O vírus é altamente contagioso e merece sua atenção e cuidado. Siga as orientações recomendadas.
+                    <br/>
+                    Cuide de sua saúde e de quem está próximo de você.
+                </div>
+            </div>        
+        }
+        else if(febre === '' && sintomas === '' && medicamento === '' && melhora === '' && outros === '' && grupo === ''){
+            mensagem = 
+            <div>
+            <div className="header"> Inválido </div>
+                <div className="content">
+                    {" "}
+                    Marque uma alternativa para receber uma resposta
+                    <br />
+                </div>
+            </div>        
+        }
+        else if(febre === '' || sintomas === '' || outros === '' || grupo === ''){
+            mensagem = 
+            <div>
+            <div className="header"> Inválido </div>
+                <div className="content">
+                    {" "}
+                    Marque uma alternativa para receber uma resposta
+                    <br />
+                </div>
+            </div>        
+        }
+        else{
+            mensagem = 
+            <div>
+                <div className="header"> Fique em casa! </div>
+                <div className="content">
+                    {" "}
+                    Você pode estar apenas com uma infecção leve e tem baixa probabilidade de ser causada pelo coronavírus. Você pode tratá-la em casa mesmo!
+                    <br />
+                    Apenas sigas as orientações recomendadas e em caso piora procure uma Unidade de Saúde perto da casa.
+                </div>
+            
+            </div>
         }
 
+        let medicamentos = '';
+        if (this.state.selectedSintomas === 'sim') {
+            medicamentos = 
+            <fieldset onChange={this.handleMedicamentoChange.bind(this)}>
+                <div className='inputGroup'>
+                <label htmlFor="medicamento">Você tomou algum medicamento para seus sintomas?
+                <br/>
+                    <input name="medicamento" className="option-input radio" id="1" type="radio" value="sim" checked={this.state.selectedMedicamento === 'sim'} /> Sim 
+                    <br/>
+                    <input name="medicamento" className="option-input radio" id="2" type="radio" value="nao" checked={this.state.selectedMedicamento === 'nao'} /> Não 
+                </label>
+                </div>
+            </fieldset>
+        } else {
+            medicamentos = '';
+        };
+
+        let melhorou = '';
+        if (this.state.selectedMedicamento === 'sim') {
+            melhorou = 
+            <fieldset onChange={this.handleMelhoraChange.bind(this)}>
+                <div className='inputGroup'>
+                <label htmlFor="melhora">Você melhorou?
+                <br/>
+                    <input name="melhora" className="option-input radio" id="1" type="radio" value="sim" checked={this.state.selectedMelhora === 'sim'} /> Sim 
+                    <br/>
+                    <input name="melhora" className="option-input radio" id="2" type="radio" value="nao" checked={this.state.selectedMelhora === 'nao'} /> Não 
+                </label>
+                </div>
+            </fieldset>;
+        } else {
+            melhorou = '';
+        };
 
         return(
             <div className="quiz" style={{textAlign: 'center'}}>
                 <main>
-                    <h2>Mini Consulta</h2>
-                    <p>Devo procurar uma unidade médica?</p>
-                    <p>Abaixo teremos um pequeno questionario relacionado ao coronavírus para identificar se você precisa procurar uma 
-                        unidade médica ou se apenas tomar alguns cuidados em sua casa</p>
+                    <h1 style={{fontFamily: 'Roboto, sansSerif', padding:'70px 0px 30px 0px'}}>O que fazer?</h1>
+                    <h2 style={{margin: '-1px 250px'}}>Devo procurar uma unidade médica?</h2>
+                    <p className='text1'>Abaixo teremos um pequeno questionario relacionado ao coronavírus para identificar se você precisa procurar uma 
+                        unidade médica ou se apenas tomar alguns cuidados em sua casa.</p>
 
-                    <div class="quiz">
+                    <div className="quiz">
                         <form onSubmit={this.handleFormSubmit}>
-                            <label for="febre">Você teve febre (acima de 37,8º)?
-                            <br/>
-                                <input name="febre" id='1' type="radio" value="sim" checked={this.state.febre.isChecked} onClick={this.handleCheckElement}/> Sim 
-                                <input name="febre" id='2' type="radio" value="nao" checked={this.state.febre.isChecked} onClick={this.handleCheckElement}/> Não 
-                            </label>
+                            <fieldset onChange={this.handleFebreChange.bind(this)}>
+                                <div className='inputGroup'>
+                                <label htmlFor="febre">Você teve febre (acima de 37,8º)?
+                                <br/>
+                                    <input name="febre" className="option-input radio" id='1' type="radio" value="sim" checked={this.state.selectedFebre === 'sim'} />Sim
+                                    <br/>
+                                    <input name="febre" className="option-input radio" id='2' type="radio" value="nao" checked={this.state.selectedFebre === 'nao'} />Não 
+                                </label>
+                                </div>
+                            </fieldset>
 
-                            <br/>
-                            <br/>
+                            <fieldset onChange={this.handleSintomasChange.bind(this)}>
+                                <div className='inputGroup'>
+                                    <label htmlFor="sintomas">Você teve algum dos seguintes sintomas:
+                                    coriza, tosse, cansaço, dor de garganta, dor de cabeça, dores no corpo, perda de olfato/paladar?
+                                    <br/>
+                                        <input name="sintomas" className="option-input radio" id='1' type="radio" value="sim" checked={this.state.selectedSintomas === 'sim'} /> Sim 
+                                        <br/>
+                                        <input name="sintomas" className="option-input radio" id='2' type="radio" value="nao" checked={this.state.selectedSintomas === 'nao'} /> Não 
+                                    </label>
+                                </div>
+                            </fieldset>
 
-                            <label for="sintomas">Você teve algum desses sintomas?
-                            <br/>
-                                <input name="sintomas" id="1" type="checkbox" value="coriza" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Coriza 
-                                <input name="sintomas" id="2" type="checkbox" value="nariz-entupido" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Nariz entupido 
-                                <input name="sintomas" id="3" type="checkbox" value="cansaco" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Cansaço 
-                                <input name="sintomas" id="4" type="checkbox" value="tosse" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Tosse 
-                                <input name="sintomas" id="5" type="checkbox" value="dor-de-cabeca" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Dor de cabeça 
-                                <input name="sintomas" id="6" type="checkbox" value="dor-corpo" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Dores no corpo
-                                <input name="sintomas" id="7" type="checkbox" value="diarreia-dor" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Diarréia ou dores abdominais
-                                <input name="sintomas" id="8" type="checkbox" value="perda-olfato" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Perda de olfato (não sentir cheiro)
-                                <input name="sintomas" id="9" type="checkbox" value="perda-paladar" checked={this.state.sintomas.isChecked} onClick={this.handleCheckElement}/> Perda do paladar (não sentir gosto)
-                            </label>
+                            {medicamentos}
 
-                            <br/>
-                            <br/>
+                            {melhorou}
 
-                            <label for="medicamento">Você tomou algum medicamento para seus sintomas?
-                            <br/>
-                                <input name="medicamento" id="1" type="radio" value="sim" checked={this.state.medicamento.isChecked} onClick={this.handleCheckElement}/> Sim 
-                                <input name="medicamento" id="2" type="radio" value="nao" checked={this.state.medicamento.isChecked} onClick={this.handleCheckElement}/> Não 
-                            </label>
+                            <fieldset onChange={this.handleOutrosSintomasChange.bind(this)}>
+                                <div className='inputGroup'>
+                                <label htmlFor="outrosSintomas">Teve algum desses outros sintomas?
+                                <br/>
+                                    <input name="outrosSintomas" className="option-input radio" id="1" type="radio" value="sintomas-graves" checked={this.state.selectedOutrosSintomas === 'sintomas-graves'} /> Vomito ou falta de ar ou dificuldade de respirar ou dedos azulados ou palidos 
+                                    <br/>
+                                    <input name="outrosSintomas" className="option-input radio" id="2" type="radio" value="nenhum-outro" checked={this.state.selectedOutrosSintomas === 'nenhum-outro'} /> Não tive nenhum outro sintomas 
+                                </label>
+                                </div>
+                            </fieldset>
 
-                            {melhora}
+                            <fieldset onChange={this.handleGrupodeRiscoChange.bind(this)}>
+                                <div className='inputGroup'>
+                                <label htmlFor="grupoRisco">Você está grávida ou tem mais de 80 anos?
+                                <br/>
+                                    <input name="grupoRisco" className="option-input radio" id="1" type="radio" value="sim" checked={this.state.selectedGrupodeRisco === 'sim'} /> Sim 
+                                    <br/>
+                                    <input name="grupoRisco" className="option-input radio" id="2" type="radio" value="nao" checked={this.state.selectedGrupodeRisco === 'nao'} /> Não 
+                                </label>
+                                </div>
+                            </fieldset>
 
-                            <br/>
-                            <br/>
-
-                            <label for="outrosSintomas">Teve algum desses outros sintomas?
-                            <br/>
-                                <input name="outrosSintomas" id="1" type="radio" value="sintomas-grave" checked={this.state.outrosSintomas.isChecked} onClick={this.handleCheckElement}/> Vomito ou falta de ar ou dificuldade de respirar ou dedos azulados ou palidos 
-                                <input name="outrosSintomas" id="2" type="radio" value="nenhum-outro" checked={this.state.outrosSintomas.isChecked} onClick={this.handleCheckElement}/> Não tive nenhum outro sintomas 
-                            </label>
-                            
-                            <br/>
-                            <br/>
-
-                            <label for="grupoRisco">Você está grávida ou tem mais de 80 anos?
-                            <br/>
-                                <input name="grupoRisco" id="1" type="radio" value="sim"/> Sim 
-                                <input name="grupoRisco" id="2" type="radio" value="nao"/> Não 
-                            </label>
-
-                            <input type="submit" value="Enviar Questionário" />
                         </form>
+                            <Popup trigger={<button className="enviar"> Enviar </button>} modal>
+                                {close => (
+                                
+                                <div className="modal">
+                                    <a className="close" onClick={close}>
+                                        &times;
+                                    </a>
+                                    {mensagem}
+                                    <button
+                                    className="enviar"
+                                    onClick={() => {
+                                    console.log("modal closed ");
+                                    close();
+                                    }}
+                                >
+                                    Voltar
+                                </button>
+                                </div>
+                                
+                                )}
+                            </Popup>
                     </div>
                 </main>
-
                 <Footer/>
             </div>
         );

@@ -1,5 +1,6 @@
 html{scroll-behavior:smooth;}
 
+*{font-family: 'Roboto', sans-serif;}
 
 .App {
   text-align: center;
@@ -13,15 +14,16 @@ main{
 }
 
 h2{
-  padding: 1em 0 1em 0;
-  margin: -1px 0;
+  text-align: left;
+  padding: 2em 0 1em 0;
+  margin: -1px 100px;
 }
 
 .text{
   text-align: left;
   align-items: center;
   text-indent: 40px;
-  margin: 0px 150px;
+  margin: 0px 60px;
 }
 
 .App-banner{
@@ -42,10 +44,20 @@ h2{
 .icone-p{
   text-align: center;
   font-size: 1.20rem;
-  color: #0D7DD2;
+  color: #0a6f82;
   font-weight: bold;
   width: 290px;
   margin-top: 26px;
+}
+
+.icone-p1{
+  text-align: left;
+  font-size: 1.20rem;
+  color: #0a6f82;
+  font-weight: bold;
+  width: 270px;
+  margin-top: 26px;
+  margin-left: 25px;
 }
 
 .container-geral{
@@ -55,7 +67,7 @@ h2{
 }
 
 .container{
-  background-color: #F586C9;
+  background-color: #80e2f4;
   border-radius: 20px;
   position: relative;
   width: 40%;
@@ -75,7 +87,7 @@ h2{
 }
 
 .box{
-  background-color: #8EF586;
+  background-color: #0fa1bc;
   text-align: center;
   height: 200px;
   width: 300px;
@@ -87,7 +99,8 @@ h2{
 
 .sintomas p{
   width: 70%;
-  margin: 3em 2em;
+  margin-left: 2.5em;
+  margin-top: 3em;
   text-align: left;
   font-size: 1.52rem;
   line-height: 1.3;

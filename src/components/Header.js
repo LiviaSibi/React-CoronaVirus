@@ -55,7 +55,7 @@ class Header extends React.Component{
                         <div className="part2">
                             <ul className="ul" style={{position: 'absolute', boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)'}}>
                                 <li className="li"><Link to='/faq'>Perguntas & Respostas</Link></li>
-                                <li className="li"><Link to='/quiz'>Mini Consulta</Link></li>
+                                <li className="li"><Link to='/quiz'>O que fazer?</Link></li>
                             </ul>
                         </div>
                     </nav>

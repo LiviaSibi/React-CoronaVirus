@@ -1,11 +1,13 @@
 html{scroll-behavior:smooth;}
 
+*{font-family: 'Roboto', sans-serif;}
+
 .indice-ul {
-    width: 70%;
+    width: 60%;
     font-weight: 500;
     text-align: left;
     align-items: center;
-    margin: 0px 150px;
+    margin: 0px 220px;
     background-color: #fff;
     border: 1px solid #000;
     border-radius: 20px;
@@ -15,7 +17,7 @@ html{scroll-behavior:smooth;}
 }
 
 .indice-li:hover {
-    background-color: #F7BEFB;
+    background-color: #a4ebf8;
 }
 
 .indice-li:first-child:hover{
@@ -37,20 +39,19 @@ html{scroll-behavior:smooth;}
 .faq-h1{
     margin: -1px 0;
     padding: 1em 0;
-    text-decoration: underline;
+}
+.faq-h2{
+    margin: -1px 0px;
 }
 
-.faq-h2{
-    color: #ad0e6e;
-}
 
 .question{
     text-align: left;
     align-items: center;
-    margin: 50px 160px;
-    width: 70%;
+    margin: 50px 280px;
+    width: 50%;
 }
 
 .question p{
-    text-indent: 50px;
+    text-indent: 0px;
 }

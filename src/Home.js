@@ -8,7 +8,7 @@ import contatoObjetos from './Imagem/contatoObjetos.png';
 import './App.css';
 import Footer from './components/Footer.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHandsWash, faHandshake, faHeadSideMask, faHeadSideCough, faThermometerFull, faDiagnoses, faBoxTissue, faLungsVirus, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faToiletPaper, faHandsWash, faHandshake, faHeadSideMask, faHeadSideCough, faThermometerFull, faDiagnoses, faBoxTissue, faLungsVirus, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 class Home extends React.Component {
     render(){
@@ -29,7 +29,7 @@ class Home extends React.Component {
 
             <section id={'transmissao'}>
                 <h2>Como a transmissão ocorre?</h2>
-                <p className="text" style={{textIndent: '0px', padding: '0 0 2em 0'}}>A incubação do coronavírus é de 2 a 14 dias, e sua transmissão ocorre principalmente durante os sintomas. A transmissão pode ocorrer pelo ar ou por contato com secreções de pessoas doentes.</p>
+                <p className="text" style={{ padding: '0 0 2em 0'}}>A incubação do coronavírus é de 2 a 14 dias, e sua transmissão ocorre principalmente durante os sintomas. A transmissão pode ocorrer pelo ar ou por contato com secreções de pessoas doentes.</p>
                 <div className="transmissão-container">
                 <div className="icone">
                     <img src={espirro} className="transmissão" alt="espirro"/>
@@ -55,23 +55,23 @@ class Home extends React.Component {
 
                 <div className="icone">
                     <img src={contato} className="transmissão" alt="contato com pessoas"/>
-                    <p className="icone-p">Contato próximo como toque ou aperto de mão com pessoas infectadas (caso suspeito ou confirmado)</p>
+                    <p className="icone-p1">Contato próximo como toque ou aperto de mão com pessoas infectadas (caso suspeito ou confirmado)</p>
                 </div>
 
                 <div className="icone">
                     <img src={contatoObjetos} className="transmissão" alt="contato com objetos"/>
-                    <p className="icone-p">Contato com objeto ou superfícies contaminadas seguido de contato com boca, nariz ou olhos</p>
+                    <p className="icone-p1">Contato com objeto ou superfícies contaminadas seguido de contato com boca, nariz ou olhos</p>
                 </div>
                 </div>
             </section>
 
             <section id={'prevencao'}>
-                <h2>Prevenção</h2>
+                <h2 style={{textAlign:'center',  margin: '-1px 0px'}}>Prevenção</h2>
                 <p>Como evitar se contaminar ou transmitir o vírus</p>
 
                 <div className="container-geral">
                 <div className="container">
-                    <h3>Higiene <FontAwesomeIcon icon={faHandsWash} /></h3>
+                    <h3><FontAwesomeIcon icon={faHandsWash} /> Higiene </h3>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Lave bem as mãos com água e sabão até pelo menos metade do pulso.</p>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Use álcool 70% para limpar as mãos.</p>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Evite tocar nariz, olhos e boca antes de limpar as mãos.</p>
@@ -79,7 +79,7 @@ class Home extends React.Component {
                 </div>
 
                 <div className="container">
-                    <h3>Ao tossir ou espirrar <FontAwesomeIcon icon={faHeadSideMask} /></h3>
+                    <h3><FontAwesomeIcon icon={faHeadSideMask} /> Ao tossir ou espirrar </h3>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Cubra a boca e o nariz. Use a parte interna do cotovelo.</p>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Utilize lenço descartável quando estiver com nariz escorrendo. Jogue-o fora logo após o uso.</p>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Lembre-se de lavar as mãos após tossir ou espirrar.</p>
@@ -88,7 +88,7 @@ class Home extends React.Component {
                 </div>
 
                 <div className="container">
-                    <h3>Contato Físico <FontAwesomeIcon icon={faHandshake} /></h3>
+                    <h3><FontAwesomeIcon icon={faHandshake} /> Contato Físico </h3>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Evite cumprimentar com aperto de mãos, abraço ou beijo no rosto.</p>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Evite multidões.</p>
                     <p><FontAwesomeIcon icon={faAngleRight} /> Manter a distância de um metro de pessoas espirrando ou tossindo.</p>
@@ -97,13 +97,13 @@ class Home extends React.Component {
             </section>
 
             <section id={'sintomas'}>
-                <h2>Sintomas</h2>
+                <h2 style={{textAlign:'center',  margin: '-1px 0px'}}>Sintomas</h2>
                 <div className="sintomas">
                 <div className="box">
-                    <p><FontAwesomeIcon icon={faHeadSideCough} /> Tosse <br/>(seca ou com secreção)</p>
+                    <p><FontAwesomeIcon icon={faHeadSideCough} /> Tosse (seca ou com secreção)</p>
                 </div>
                 <div className="box">
-                    <p><FontAwesomeIcon icon={faThermometerFull} /> Febre <br/>(acima de 37,8º)</p>
+                    <p><FontAwesomeIcon icon={faThermometerFull} /> Febre (acima de 37,8º)</p>
                 </div>
 
                 <div className="box">
@@ -116,6 +116,10 @@ class Home extends React.Component {
 
                 <div className="box">
                     <p><FontAwesomeIcon icon={faLungsVirus} /> Dificuldade respiratória</p>
+                </div>
+
+                <div className="box">
+                    <p><FontAwesomeIcon icon={faToiletPaper} /> Dirreia</p>
                 </div>
                 </div>
             </section>

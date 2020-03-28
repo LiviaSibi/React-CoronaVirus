@@ -7,7 +7,7 @@ const stylep = {
 
 const stylediv = {
     borderRadius: '10px',
-    padding: '10px',
+    padding: '7px',
     margin: '0px 80px',
     textAlign: 'center',
     backgroundColor: '#4d4d4d',
@@ -16,8 +16,8 @@ const stylediv = {
 
 const styleFooter = {
     backgroundColor: '#363636',
-    borderTop: '45px solid #90F6EE',
-    padding: '25px 0px',
+    borderTop: '25px solid #6cdef3',
+    padding: '20px 0px',
     marginLeft: '260px'
 };
 
