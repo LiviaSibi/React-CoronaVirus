@@ -41,7 +41,7 @@ h2{
   flex-wrap: wrap;
 }
 
-.icone-p{
+.transmissão-p{
   text-align: center;
   font-size: 1.20rem;
   color: #0a6f82;
@@ -50,7 +50,7 @@ h2{
   margin-top: 26px;
 }
 
-.icone-p1{
+.transmissão-p1{
   text-align: left;
   font-size: 1.20rem;
   color: #0a6f82;
@@ -60,13 +60,13 @@ h2{
   margin-left: 25px;
 }
 
-.container-geral{
+.prevencao-container{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.container{
+.prevencao{
   background-color: #80e2f4;
   border-radius: 20px;
   position: relative;
@@ -74,19 +74,19 @@ h2{
   margin: 2em;
 }
 
-.container p{
+.prevencao-container p{
   padding: 0 30px;
   text-align: left;
   font-size: 1.52rem;
 }
 
-.sintomas{
+.sintomas-container{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.box{
+.sintomas{
   background-color: #0fa1bc;
   text-align: center;
   height: 200px;
@@ -97,7 +97,7 @@ h2{
   margin: 20px;
 }
 
-.sintomas p{
+.sintomas-container p{
   width: 70%;
   margin-left: 2.5em;
   margin-top: 3em;

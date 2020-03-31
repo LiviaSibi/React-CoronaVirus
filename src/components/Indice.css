@@ -30,7 +30,7 @@ html{scroll-behavior:smooth;}
     border-bottom-right-radius: 20px;
 }
 
-.indice{
+.indice-quiz{
     text-align: left;
     position: relative;
     margin: 2em;
@@ -43,7 +43,6 @@ html{scroll-behavior:smooth;}
 .faq-h2{
     margin: -1px 0px;
 }
-
 
 .question{
     text-align: left;

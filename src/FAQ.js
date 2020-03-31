@@ -15,7 +15,7 @@ class Faq extends React.Component{
 
             <Indice />
 
-            <div className="duvida">
+            <div className="question-collection">
               <div className="question" id="question1">
                 <h2 className='faq-h2'>1) O que é o coronavírus?</h2>
                 <p>Coronavírus é o nome de uma grande família de vírus que tem uma estrutura em formato de coroa, conhecida desde 

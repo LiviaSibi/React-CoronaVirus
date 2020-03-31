@@ -5,7 +5,7 @@ import './Indice.css';
 class Indice extends React.Component{
   render(){
     return(
-      <div className="indice">
+      <div className="indice-quiz">
         <ul className="indice-ul">
           <li className="indice-li"><HashLink to='/faq#question1'> 1) O que é o coronavírus?</HashLink></li>
           <li className="indice-li"><HashLink to='/faq#question2'> 2) Como é a transmissão?</HashLink></li>
