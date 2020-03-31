@@ -3,6 +3,82 @@ import Footer from './components/Footer.js';
 import Popup from "reactjs-popup";
 import './quiz.css';
 
+function CasoSuspeito(){
+  return (
+    <div>
+      <div className="header"> Caso Suspeito </div>
+      <div className="content">
+        {" "}
+        Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
+        <br />
+        <br />
+        A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
+      </div>
+    </div>
+  );
+}
+
+function FiqueAlerta(){
+  return (
+    <div>
+      <div className="header"> Fique alerta! </div>
+      <div className="content">
+        {" "}
+        Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
+        <br />
+        <br />
+        A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
+      </div>
+    </div>
+  );
+}
+
+function TudoBem(){
+  return (
+    <div>
+      <div className="header"> Tudo bem! </div>
+      <div className="content">
+        {" "}
+        Você não aparenta ter dos nenhum sintomas causados pelo coronavírus!
+        <br />
+        <br />
+        Mesmo que não possua nenhum sintomas não deve relaxar! O vírus é altamente contagioso e merece sua atenção e cuidado. Siga as orientações recomendadas.
+        <br />
+        <br />
+        Cuide de sua saúde e de quem está próximo de você.
+      </div>
+    </div>
+  );
+}
+
+function Inválido(){
+  return (
+    <div>
+      <div className="header"> Inválido </div>
+      <div className="content" style={{textAlign: 'center'}}>
+        {" "}
+        Marque uma alternativa para receber uma resposta
+        <br />
+      </div>
+    </div>
+  );
+}
+
+function FiqueEmCasa(){
+  return (
+    <div>
+      <div className="header"> Fique em casa! </div>
+      <div className="content">
+        {" "}
+        Você pode estar apenas com uma infecção leve e tem baixa probabilidade de ser causada pelo coronavírus. Você pode tratá-la em casa mesmo!
+        <br />
+        <br />
+        Apenas sigas as orientações recomendadas e em caso piora procure uma Unidade de Saúde perto da casa.
+      </div>
+    </div>
+  );
+}
+
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
@@ -12,50 +88,32 @@ class Quiz extends React.Component {
         selectedMedicamento: '',
         selectedMelhora: '',
         selectedOutrosSintomas: '',
-          electedGrupodeRisco: ''
+        selectedGrupodeRisco: ''
       };
   }
 
   handleFebreChange = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      selectedFebre: event.target.value
-    });
+    this.setState({ selectedFebre: event.target.value });
   };
 
   handleSintomasChange = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      selectedSintomas: event.target.value
-    });
+    this.setState({ selectedSintomas: event.target.value });
   };
 
   handleMedicamentoChange = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      selectedMedicamento: event.target.value
-    });
+    this.setState({ selectedMedicamento: event.target.value });
   };
 
   handleMelhoraChange = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      selectedMelhora: event.target.value
-    });
+    this.setState({ selectedMelhora: event.target.value });
   };
 
   handleOutrosSintomasChange = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      selectedOutrosSintomas: event.target.value
-    });
+    this.setState({ selectedOutrosSintomas: event.target.value });
   };
 
   handleGrupodeRiscoChange = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      selectedGrupodeRisco: event.target.value
-    });
+    this.setState({ selectedGrupodeRisco: event.target.value });
   };
 
   render() {
@@ -67,133 +125,34 @@ class Quiz extends React.Component {
     const outros = this.state.selectedOutrosSintomas;
     const grupo = this.state.selectedGrupodeRisco;
     if (febre === 'sim' && outros === 'sintomas-graves' && grupo === 'sim') {
-      mensagem =
-        <div>
-          <div className="header"> Caso Suspeito </div>
-          <div className="content">
-            {" "}
-            Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
-            <br />
-            <br />
-            A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
-          </div>
-        </div>
-      }
+      mensagem = <CasoSuspeito />
+    }
     else if (febre === 'sim' && sintomas === 'sim' && medicamento === 'sim' && melhora === 'nao' && outros === 'sintomas-graves') {
-      mensagem =
-        <div>
-          <div className="header"> Caso Suspeito </div>
-          <div className="content">
-            {" "}
-            Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
-            <br />
-            <br />
-            A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
-          </div>
-        </div>
+      mensagem = <CasoSuspeito />
     }
     else if (sintomas === 'sim' && medicamento === 'sim' && outros === 'sintomas-graves') {
-      mensagem =
-        <div>
-          <div className="header"> Caso Suspeito </div>
-          <div className="content">
-            {" "}
-            Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
-            <br />
-            <br />
-            A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
-          </div>
-        </div>
+      mensagem = <CasoSuspeito />
     }
     else if (sintomas === 'sim' && medicamento === 'sim' && melhora === 'nao') {
-      mensagem =
-        <div>
-          <div className="header"> Fique alerta! </div>
-          <div className="content">
-            {" "}
-            Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
-            <br />
-            <br />
-            A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
-          </div>
-        </div>
+      mensagem = <FiqueAlerta />
     }
     else if (febre === 'sim' && sintomas === 'sim') {
-      mensagem =
-        <div>
-          <div className="header"> Fique alerta! </div>
-          <div className="content">
-            {" "}
-            Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
-            <br />
-            <br />
-            A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
-          </div>
-        </div>
+      mensagem = <FiqueAlerta />
     }
     else if (sintomas === 'sim' && outros === 'sintomas-grave') {
-      mensagem =
-        <div>
-          <div className="header"> Fique alerta! </div>
-          <div className="content">
-            {" "}
-            Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
-            <br />
-            <br />
-            A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
-          </div>
-        </div>
+      mensagem = <FiqueAlerta />
     }
     else if (febre === 'nao' && sintomas === 'nao' && outros === 'nenhum-outro') {
-      mensagem =
-        <div>
-          <div className="header"> Tudo bem! </div>
-          <div className="content">
-            {" "}
-            Você não aparenta ter dos nenhum sintomas que causam o coronavírus!
-            <br />
-            <br />
-            Mesmo que não possua nenhum sintomas não deve relaxar! O vírus é altamente contagioso e merece sua atenção e cuidado. Siga as orientações recomendadas.
-            <br />
-            <br />
-            Cuide de sua saúde e de quem está próximo de você.
-          </div>
-        </div>
+      mensagem = <TudoBem />
     }
     else if (febre === '' && sintomas === '' && medicamento === '' && melhora === '' && outros === '' && grupo === '') {
-      mensagem =
-        <div>
-          <div className="header"> Inválido </div>
-          <div className="content">
-            {" "}
-            Marque uma alternativa para receber uma resposta
-            <br />
-          </div>
-        </div>
+      mensagem = <Inválido />
     }
     else if (febre === '' || sintomas === '' || outros === '' || grupo === '') {
-      mensagem =
-        <div>
-          <div className="header"> Inválido </div>
-          <div className="content">
-            {" "}
-            Marque uma alternativa para receber uma resposta
-            <br />
-          </div>
-        </div>
+      mensagem = <Inválido />
     }
     else {
-      mensagem =
-        <div>
-          <div className="header"> Fique em casa! </div>
-          <div className="content">
-            {" "}
-            Você pode estar apenas com uma infecção leve e tem baixa probabilidade de ser causada pelo coronavírus. Você pode tratá-la em casa mesmo!
-            <br />
-            <br />
-            Apenas sigas as orientações recomendadas e em caso piora procure uma Unidade de Saúde perto da casa.
-          </div>
-        </div>
+      mensagem = <FiqueEmCasa />
     }
 
     let medicamentos = '';
@@ -208,11 +167,8 @@ class Quiz extends React.Component {
               <input name="medicamento" className="option-input radio" id="2" type="radio" value="nao" checked={this.state.selectedMedicamento === 'nao'} /> Não
             </label>
           </div>
-      </fieldset>
-    } 
-    else {
-      medicamentos = '';
-    };
+        </fieldset>
+    }
 
     let melhorou = '';
     if (this.state.selectedMedicamento === 'sim') {
@@ -227,10 +183,7 @@ class Quiz extends React.Component {
             </label>
           </div>
         </fieldset>;
-    } 
-    else {
-      melhorou = '';
-    };
+    }
 
     return (
       <div className="quiz" style={{ textAlign: 'center', zIndex: '1' }}>
@@ -297,17 +250,9 @@ class Quiz extends React.Component {
                 <div className="modal">
                   <a className="close" onClick={close}>
                     &times;
-                    </a>
-                    {mensagem}
-                    <button
-                      className="enviar"
-                      onClick={() => {
-                        console.log("modal closed ");
-                        close();
-                      }}
-                    >
-                    Voltar
-                    </button>
+                  </a>
+                  {mensagem}
+                  <button className="enviar" onClick={() => { close() }}> Voltar </button>
                 </div>
               )}
             </Popup>
