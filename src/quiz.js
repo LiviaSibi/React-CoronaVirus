@@ -117,42 +117,35 @@ class Quiz extends React.Component {
   };
 
   render() {
-    let mensagem = '';
-    const febre = this.state.selectedFebre;
-    const sintomas = this.state.selectedSintomas;
-    const medicamento = this.state.selectedMedicamento;
-    const melhora = this.state.selectedMelhora;
-    const outros = this.state.selectedOutrosSintomas;
-    const grupo = this.state.selectedGrupodeRisco;
-    if (febre === 'sim' && outros === 'sintomas-graves' && grupo === 'sim') {
-      mensagem = <CasoSuspeito />
+    let message = '';
+    const showMessageCasoSuspeito = 
+      (this.state.selectedFebre === 'sim' && this.state.selectedOutrosSintomas === 'sintomas-graves' && this.state.selectedGrupodeRisco === 'sim') 
+      || (this.state.selectedFebre === 'sim' && this.state.selectedSintomas === 'sim' && this.state.selectedMedicamento === 'sim' && this.state.selectedMelhora === 'nao' && this.state.selectedOutrosSintomas === 'sintomas-graves')
+      || (this.state.selectedSintomas === 'sim' && this.state.selectedMedicamento === 'sim' && this.state.selectedOutrosSintomas === 'sintomas-graves');
+    const showMessageFiqueAlerta = 
+      (this.state.selectedSintomas === 'sim' && this.state.selectedMedicamento === 'sim' && this.state.selectedMelhora === 'nao')
+      || (this.state.selectedFebre === 'sim' && this.state.selectedSintomas === 'sim')
+      || (this.state.selectedSintomas === 'sim' && this.state.selectedOutrosSintomas === 'sintomas-grave');
+    const showMessageTudoBem = 
+      (this.state.selectedFebre === 'nao' && this.state.selectedSintomas === 'nao' && this.state.selectedOutrosSintomas === 'nenhum-outro');
+    const showMessageInvalido = 
+      (this.state.selectedFebre === '' && this.state.selectedSintomas === '' && this.state.selectedMedicamento === '' && this.state.selectedMelhora === '' && this.state.selectedOutrosSintomas === '' && this.state.selectedGrupodeRisco === '')
+      || (this.state.selectedFebre === '' || this.state.selectedSintomas === '' || this.state.selectedOutrosSintomas === '' || this.state.selectedGrupodeRisco === '');
+    
+    if(showMessageCasoSuspeito === true){
+      message = <CasoSuspeito />
     }
-    else if (febre === 'sim' && sintomas === 'sim' && medicamento === 'sim' && melhora === 'nao' && outros === 'sintomas-graves') {
-      mensagem = <CasoSuspeito />
+    else if(showMessageFiqueAlerta === true){
+      message = <FiqueAlerta />
     }
-    else if (sintomas === 'sim' && medicamento === 'sim' && outros === 'sintomas-graves') {
-      mensagem = <CasoSuspeito />
+    else if(showMessageTudoBem === true){
+      message = <TudoBem />
     }
-    else if (sintomas === 'sim' && medicamento === 'sim' && melhora === 'nao') {
-      mensagem = <FiqueAlerta />
+    else if(showMessageInvalido === true){
+      message = <Inválido />
     }
-    else if (febre === 'sim' && sintomas === 'sim') {
-      mensagem = <FiqueAlerta />
-    }
-    else if (sintomas === 'sim' && outros === 'sintomas-grave') {
-      mensagem = <FiqueAlerta />
-    }
-    else if (febre === 'nao' && sintomas === 'nao' && outros === 'nenhum-outro') {
-      mensagem = <TudoBem />
-    }
-    else if (febre === '' && sintomas === '' && medicamento === '' && melhora === '' && outros === '' && grupo === '') {
-      mensagem = <Inválido />
-    }
-    else if (febre === '' || sintomas === '' || outros === '' || grupo === '') {
-      mensagem = <Inválido />
-    }
-    else {
-      mensagem = <FiqueEmCasa />
+    else{
+      message = <FiqueEmCasa />
     }
 
     let medicamentos = '';
@@ -251,7 +244,7 @@ class Quiz extends React.Component {
                   <a className="close" onClick={close}>
                     &times;
                   </a>
-                  {mensagem}
+                  {message}
                   <button className="enviar" onClick={() => { close() }}> Voltar </button>
                 </div>
               )}
