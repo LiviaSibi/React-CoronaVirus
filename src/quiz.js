@@ -2,82 +2,7 @@ import React from 'react';
 import Footer from './components/Footer.js';
 import Popup from "reactjs-popup";
 import './quiz.css';
-
-function CasoSuspeito(){
-  return (
-    <div>
-      <div className="header"> Caso Suspeito </div>
-      <div className="content">
-        {" "}
-        Seu caso parece ser suspeito de coronavírus, e identificamos alguns sinais de alarme.
-        <br />
-        <br />
-        A orientação é que você busque atendimento em uma Unidade de Saúde perto de casa para ser avaliado por um profissional.
-      </div>
-    </div>
-  );
-}
-
-function FiqueAlerta(){
-  return (
-    <div>
-      <div className="header"> Fique alerta! </div>
-      <div className="content">
-        {" "}
-        Apesar de ter poucos sinais de infecção pelo coronavírus, você citou alguns sinais de alarme e precisa de uma avaliação.
-        <br />
-        <br />
-        A orientação é que você busque atendimento em uma Unidade de Saúde perto da casa.
-      </div>
-    </div>
-  );
-}
-
-function TudoBem(){
-  return (
-    <div>
-      <div className="header"> Tudo bem! </div>
-      <div className="content">
-        {" "}
-        Você não aparenta ter dos nenhum sintomas causados pelo coronavírus!
-        <br />
-        <br />
-        Mesmo que não possua nenhum sintomas não deve relaxar! O vírus é altamente contagioso e merece sua atenção e cuidado. Siga as orientações recomendadas.
-        <br />
-        <br />
-        Cuide de sua saúde e de quem está próximo de você.
-      </div>
-    </div>
-  );
-}
-
-function Inválido(){
-  return (
-    <div>
-      <div className="header"> Inválido </div>
-      <div className="content" style={{textAlign: 'center'}}>
-        {" "}
-        Marque uma alternativa para receber uma resposta
-        <br />
-      </div>
-    </div>
-  );
-}
-
-function FiqueEmCasa(){
-  return (
-    <div>
-      <div className="header"> Fique em casa! </div>
-      <div className="content">
-        {" "}
-        Você pode estar apenas com uma infecção leve e tem baixa probabilidade de ser causada pelo coronavírus. Você pode tratá-la em casa mesmo!
-        <br />
-        <br />
-        Apenas sigas as orientações recomendadas e em caso piora procure uma Unidade de Saúde perto da casa.
-      </div>
-    </div>
-  );
-}
+import {CasoSuspeito, FiqueAlerta, TudoBem, Invalido, FiqueEmCasa} from './components/PopupMessage.js'
 
 class Quiz extends React.Component {
   constructor(props) {
@@ -142,7 +67,7 @@ class Quiz extends React.Component {
       message = <TudoBem />
     }
     else if(showMessageInvalido === true){
-      message = <Inválido />
+      message = <Invalido />
     }
     else{
       message = <FiqueEmCasa />
