@@ -8,65 +8,82 @@ class Quiz extends React.Component {
   constructor(props) {
     super(props);
       this.state = {
-        selectedFebre: '',
-        selectedSintomas: '',
-        selectedMedicamento: '',
-        selectedMelhora: '',
-        selectedOutrosSintomas: '',
-        selectedGrupodeRisco: ''
+        hasFebre: null,
+        hasSintomas: null,
+        hasMedicamento: null,
+        hasMelhora: null,
+        hasSintomasGraves: null,
+        isGrupodeRisco: null
       };
+      
+    this.handleFebreChange = this.handleFebreChange.bind(this);
+    this.handleSintomasChange = this.handleSintomasChange.bind(this);
+    this.handleMedicamentoChange = this.handleMedicamentoChange.bind(this);
+    this.handleMelhoraChange = this.handleMelhoraChange.bind(this);
+    this.handleSintomasGravesChange = this.handleSintomasGravesChange.bind(this);
+    this.handleGrupodeRiscoChange = this.handleGrupodeRiscoChange.bind(this);
   }
 
   handleFebreChange = (event) => {
-    this.setState({ selectedFebre: event.target.value });
+    const hasFebre = event.currentTarget.value === 'true'? true : false;
+    this.setState({ hasFebre });
   };
 
   handleSintomasChange = (event) => {
-    this.setState({ selectedSintomas: event.target.value });
+    const hasSintomas = event.currentTarget.value === 'true'? true : false;
+    this.setState({ hasSintomas });
   };
 
   handleMedicamentoChange = (event) => {
-    this.setState({ selectedMedicamento: event.target.value });
+    const hasMedicamento = event.currentTarget.value === 'true'? true : false;
+    this.setState({ hasMedicamento });
   };
 
   handleMelhoraChange = (event) => {
-    this.setState({ selectedMelhora: event.target.value });
+    const hasMelhora = event.currentTarget.value === 'true'? true : false;
+    this.setState({ hasMelhora });
   };
 
-  handleOutrosSintomasChange = (event) => {
-    this.setState({ selectedOutrosSintomas: event.target.value });
+  handleSintomasGravesChange = (event) => {
+    const hasSintomasGraves = event.currentTarget.value === 'true'? true : false;
+    this.setState({ hasSintomasGraves });
   };
 
   handleGrupodeRiscoChange = (event) => {
-    this.setState({ selectedGrupodeRisco: event.target.value });
+    const isGrupodeRisco = event.currentTarget.value === 'true'? true : false;
+    this.setState({ isGrupodeRisco });
   };
 
   render() {
+    const { hasFebre } = this.state;
+    const { hasSintomas } = this.state;
+    const { hasMedicamento } = this.state;
+    const { hasMelhora } = this.state;
+    const { hasSintomasGraves } = this.state;
+    const { isGrupodeRisco } = this.state;
     let message = '';
     const showMessageCasoSuspeito = 
-      (this.state.selectedFebre === 'sim' && this.state.selectedOutrosSintomas === 'sintomas-graves' && this.state.selectedGrupodeRisco === 'sim') 
-      || (this.state.selectedFebre === 'sim' && this.state.selectedSintomas === 'sim' && this.state.selectedMedicamento === 'sim' && this.state.selectedMelhora === 'nao' && this.state.selectedOutrosSintomas === 'sintomas-graves')
-      || (this.state.selectedSintomas === 'sim' && this.state.selectedMedicamento === 'sim' && this.state.selectedOutrosSintomas === 'sintomas-graves');
+      (hasFebre && hasSintomasGraves && isGrupodeRisco) 
+      || (hasFebre && hasSintomas && hasMedicamento && hasMelhora === false && hasSintomasGraves)
+      || (hasSintomas && hasMedicamento && hasSintomasGraves);
     const showMessageFiqueAlerta = 
-      (this.state.selectedSintomas === 'sim' && this.state.selectedMedicamento === 'sim' && this.state.selectedMelhora === 'nao')
-      || (this.state.selectedFebre === 'sim' && this.state.selectedSintomas === 'sim')
-      || (this.state.selectedSintomas === 'sim' && this.state.selectedOutrosSintomas === 'sintomas-grave');
+      (hasSintomas && hasMedicamento && hasMelhora === false) || (hasFebre && hasSintomas) || (hasSintomas && hasSintomasGraves);
     const showMessageTudoBem = 
-      (this.state.selectedFebre === 'nao' && this.state.selectedSintomas === 'nao' && this.state.selectedOutrosSintomas === 'nenhum-outro');
+      (hasFebre === false && hasSintomas === false && hasSintomasGraves === false);
     const showMessageInvalido = 
-      (this.state.selectedFebre === '' && this.state.selectedSintomas === '' && this.state.selectedMedicamento === '' && this.state.selectedMelhora === '' && this.state.selectedOutrosSintomas === '' && this.state.selectedGrupodeRisco === '')
-      || (this.state.selectedFebre === '' || this.state.selectedSintomas === '' || this.state.selectedOutrosSintomas === '' || this.state.selectedGrupodeRisco === '');
+      (this.state.hasFebre === null && this.state.hasSintomas === null && this.state.hasMedicamento === null && this.state.hasMelhora === null && this.state.hasSintomasGraves === null && this.state.isGrupodeRisco === null)
+      || (this.state.hasFebre === null || this.state.hasSintomas === null || this.state.hasSintomasGraves === null || this.state.isGrupodeRisco === null);
     
-    if(showMessageCasoSuspeito === true){
+    if(showMessageCasoSuspeito){
       message = <CasoSuspeito />
     }
-    else if(showMessageFiqueAlerta === true){
+    else if(showMessageFiqueAlerta){
       message = <FiqueAlerta />
     }
-    else if(showMessageTudoBem === true){
+    else if(showMessageTudoBem){
       message = <TudoBem />
     }
-    else if(showMessageInvalido === true){
+    else if(showMessageInvalido){
       message = <Invalido />
     }
     else{
@@ -74,30 +91,30 @@ class Quiz extends React.Component {
     }
 
     let medicamentos = '';
-    if (this.state.selectedSintomas === 'sim') {
+    if (hasSintomas) {
       medicamentos =
-        <fieldset onChange={this.handleMedicamentoChange.bind(this)}>
+        <fieldset>
           <div className='inputGroup'>
             <label htmlFor="medicamento">Você tomou algum medicamento para seus sintomas?
               <br />
-              <input name="medicamento" className="option-input radio" id="1" type="radio" value="sim" checked={this.state.selectedMedicamento === 'sim'} /> Sim
+              <input name="medicamento" className="option-input radio" id="1" type="radio" value="true" checked={hasMedicamento === true} onChange={this.handleMedicamentoChange}/> Sim
               <br />
-              <input name="medicamento" className="option-input radio" id="2" type="radio" value="nao" checked={this.state.selectedMedicamento === 'nao'} /> Não
+              <input name="medicamento" className="option-input radio" id="2" type="radio" value="false" checked={hasMedicamento === false} onChange={this.handleMedicamentoChange}/> Não
             </label>
           </div>
         </fieldset>
     }
 
     let melhorou = '';
-    if (this.state.selectedMedicamento === 'sim') {
+    if (hasMedicamento) {
       melhorou =
-        <fieldset onChange={this.handleMelhoraChange.bind(this)}>
+        <fieldset>
           <div className='inputGroup'>
             <label htmlFor="melhora">Você melhorou?
               <br />
-              <input name="melhora" className="option-input radio" id="1" type="radio" value="sim" checked={this.state.selectedMelhora === 'sim'} /> Sim
+              <input name="melhora" className="option-input radio" id="1" type="radio" value="true" checked={hasMelhora === true} onChange={this.handleMelhoraChange}/> Sim
               <br />
-              <input name="melhora" className="option-input radio" id="2" type="radio" value="nao" checked={this.state.selectedMelhora === 'nao'} /> Não
+              <input name="melhora" className="option-input radio" id="2" type="radio" value="false" checked={hasMelhora === false} onChange={this.handleMelhoraChange}/> Não
             </label>
           </div>
         </fieldset>;
@@ -113,25 +130,25 @@ class Quiz extends React.Component {
 
           <div className="quiz">
             <form onSubmit={this.handleFormSubmit}>
-              <fieldset onChange={this.handleFebreChange.bind(this)}>
+              <fieldset>
                 <div className='inputGroup'>
                   <label htmlFor="febre">Você teve febre (acima de 37,8º)?
                     <br />
-                    <input name="febre" className="option-input radio" id='1' type="radio" value="sim" checked={this.state.selectedFebre === 'sim'} />Sim
+                    <input name="febre" className="option-input radio" id='1' type="radio" value="true" checked={hasFebre === true} onChange={this.handleFebreChange}/>Sim
                     <br />
-                    <input name="febre" className="option-input radio" id='2' type="radio" value="nao" checked={this.state.selectedFebre === 'nao'} />Não
+                    <input name="febre" className="option-input radio" id='2' type="radio" value="false" checked={hasFebre === false} onChange={this.handleFebreChange}/>Não
                   </label>
                 </div>
               </fieldset>
 
-              <fieldset onChange={this.handleSintomasChange.bind(this)}>
+              <fieldset>
                 <div className='inputGroup'>
                   <label htmlFor="sintomas">Você teve algum dos seguintes sintomas:
                     coriza, tosse, cansaço, dor de garganta, dor de cabeça, dores no corpo, perda de olfato/paladar?
                     <br />
-                    <input name="sintomas" className="option-input radio" id='1' type="radio" value="sim" checked={this.state.selectedSintomas === 'sim'} /> Sim
+                    <input name="sintomas" className="option-input radio" id='1' type="radio" value="true" checked={hasSintomas === true} onChange={this.handleSintomasChange}/> Sim
                     <br />
-                    <input name="sintomas" className="option-input radio" id='2' type="radio" value="nao" checked={this.state.selectedSintomas === 'nao'} /> Não
+                    <input name="sintomas" className="option-input radio" id='2' type="radio" value="false" checked={hasSintomas === false} onChange={this.handleSintomasChange}/> Não
                   </label>
                 </div>
               </fieldset>
@@ -140,24 +157,24 @@ class Quiz extends React.Component {
 
               {melhorou}
 
-              <fieldset onChange={this.handleOutrosSintomasChange.bind(this)}>
+              <fieldset>
                 <div className='inputGroup'>
-                  <label htmlFor="outrosSintomas">Teve algum desses outros sintomas?
+                  <label htmlFor="sintomasGraves">Teve algum desses outros sintomas?
                     <br />
-                    <input name="outrosSintomas" className="option-input radio" id="1" type="radio" value="sintomas-graves" checked={this.state.selectedOutrosSintomas === 'sintomas-graves'} /> Vomito, falta de ar ou dificuldade de respirar, dedos azulados ou palidos
+                    <input name="sintomasGraves" className="option-input radio" id="1" type="radio" value="true" checked={hasSintomasGraves === true} onChange={this.handleSintomasGravesChange}/> Vomito, falta de ar ou dificuldade de respirar, dedos azulados ou palidos
                     <br />
-                    <input name="outrosSintomas" className="option-input radio" id="2" type="radio" value="nenhum-outro" checked={this.state.selectedOutrosSintomas === 'nenhum-outro'} /> Não tive nenhum outro sintomas
+                    <input name="sintomasGraves" className="option-input radio" id="2" type="radio" value="false" checked={hasSintomasGraves === false} onChange={this.handleSintomasGravesChange}/> Não tive nenhum outro sintomas
                   </label>
                 </div>
               </fieldset>
 
-              <fieldset onChange={this.handleGrupodeRiscoChange.bind(this)}>
+              <fieldset>
                 <div className='inputGroup'>
                   <label htmlFor="grupoRisco">Você está grávida ou tem mais de 80 anos?
                     <br />
-                    <input name="grupoRisco" className="option-input radio" id="1" type="radio" value="sim" checked={this.state.selectedGrupodeRisco === 'sim'} /> Sim
+                    <input name="grupoRisco" className="option-input radio" id="1" type="radio" value="true" checked={isGrupodeRisco === true} onChange={this.handleGrupodeRiscoChange}/> Sim
                     <br />
-                    <input name="grupoRisco" className="option-input radio" id="2" type="radio" value="nao" checked={this.state.selectedGrupodeRisco === 'nao'} /> Não
+                    <input name="grupoRisco" className="option-input radio" id="2" type="radio" value="false" checked={isGrupodeRisco === false} onChange={this.handleGrupodeRiscoChange}/> Não
                   </label>
                 </div>
               </fieldset>
