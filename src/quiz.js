@@ -71,8 +71,8 @@ class Quiz extends React.Component {
     const showMessageTudoBem = 
       (hasFebre === false && hasSintomas === false && hasSintomasGraves === false);
     const showMessageInvalido = 
-      (this.state.hasFebre === null && this.state.hasSintomas === null && this.state.hasMedicamento === null && this.state.hasMelhora === null && this.state.hasSintomasGraves === null && this.state.isGrupodeRisco === null)
-      || (this.state.hasFebre === null || this.state.hasSintomas === null || this.state.hasSintomasGraves === null || this.state.isGrupodeRisco === null);
+      (hasFebre === null && hasSintomas === null && hasMedicamento === null && hasMelhora === null && hasSintomasGraves === null && isGrupodeRisco === null)
+      || (hasFebre === null || hasSintomas === null || hasSintomasGraves === null || isGrupodeRisco === null);
     
     if(showMessageCasoSuspeito){
       message = <CasoSuspeito />
@@ -129,7 +129,7 @@ class Quiz extends React.Component {
               unidade médica ou se apenas tomar alguns cuidados em sua casa.</p>
 
           <div className="quiz">
-            <form onSubmit={this.handleFormSubmit}>
+            <form>
               <fieldset>
                 <div className='inputGroup'>
                   <label htmlFor="febre">Você teve febre (acima de 37,8º)?
