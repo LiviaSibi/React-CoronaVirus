@@ -4,6 +4,17 @@ import Popup from "reactjs-popup";
 import './quiz.css';
 import {CasoSuspeito, FiqueAlerta, TudoBem, Invalido, FiqueEmCasa} from './components/PopupMessage.js'
 
+function isNull(field){
+  return field === null;
+}
+
+function isTrue(field){
+  return field === true;
+}
+
+function isFalse(field){
+  return field === false;
+}
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
@@ -55,24 +66,22 @@ class Quiz extends React.Component {
   };
 
   render() {
-    const { hasFebre } = this.state;
-    const { hasSintomas } = this.state;
-    const { hasMedicamento } = this.state;
-    const { hasMelhora } = this.state;
-    const { hasSintomasGraves } = this.state;
-    const { isGrupodeRisco } = this.state;
+    const { hasFebre, hasSintomas, hasMedicamento, hasMelhora, hasSintomasGraves, isGrupodeRisco } = this.state;
+    const hasSintomasBasicos = [hasFebre, hasSintomas, hasSintomasGraves];
+    const hasAllSintomas = [hasSintomas, hasSintomasGraves];
+    const form = [hasFebre, hasSintomas, hasMedicamento, hasMelhora, hasSintomasGraves, isGrupodeRisco];
     let message = '';
+
     const showMessageCasoSuspeito = 
       (hasFebre && hasSintomasGraves && isGrupodeRisco) 
-      || (hasFebre && hasSintomas && hasMedicamento && hasMelhora === false && hasSintomasGraves)
-      || (hasSintomas && hasMedicamento && hasSintomasGraves);
-    const showMessageFiqueAlerta = 
-      (hasSintomas && hasMedicamento && hasMelhora === false) || (hasFebre && hasSintomas) || (hasSintomas && hasSintomasGraves);
-    const showMessageTudoBem = 
-      (hasFebre === false && hasSintomas === false && hasSintomasGraves === false);
-    const showMessageInvalido = 
-      (hasFebre === null && hasSintomas === null && hasMedicamento === null && hasMelhora === null && hasSintomasGraves === null && isGrupodeRisco === null)
-      || (hasFebre === null || hasSintomas === null || hasSintomasGraves === null || isGrupodeRisco === null);
+      || (hasSintomasBasicos.every(isTrue) && hasMedicamento && !hasMelhora) 
+      || (hasAllSintomas.every(isTrue) && hasMedicamento);
+
+    const showMessageFiqueAlerta = (hasSintomas && hasMedicamento && !hasMelhora) || (hasFebre && hasSintomas) || (hasAllSintomas.every(isTrue));
+
+    const showMessageTudoBem = (hasSintomasBasicos.every(isFalse));
+
+    const showMessageInvalido = form.every(isNull) || [hasFebre, hasSintomas, hasSintomasGraves, isGrupodeRisco].some(isNull);
     
     if(showMessageCasoSuspeito){
       message = <CasoSuspeito />

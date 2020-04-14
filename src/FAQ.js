@@ -1,6 +1,19 @@
 import React from 'react';
 import Footer from './components/Footer.js';
 import Indice from './components/Indice.js';
+import './components/Indice.css';
+import lavarMão1 from './Imagem/LavarMão1.PNG';
+import lavarMão2 from './Imagem/LavarMão2.PNG';
+import lavarMão3 from './Imagem/LavarMão3.PNG';
+import lavarMão4 from './Imagem/LavarMão4.PNG';
+import lavarMão5 from './Imagem/LavarMão5.PNG';
+import lavarMão6 from './Imagem/LavarMão6.PNG';
+import lavarMão7 from './Imagem/LavarMão7.PNG';
+import lavarMão8 from './Imagem/LavarMão8.PNG';
+import lavarMão9 from './Imagem/LavarMão9.PNG';
+import lavarMão10 from './Imagem/LavarMão10.PNG';
+import lavarMão11 from './Imagem/LavarMão11.PNG';
+import lavarMão12 from './Imagem/LavarMão12.PNG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -122,7 +135,21 @@ class Faq extends React.Component{
 
               <div className="question" id="question17">
                 <h2 className='faq-h2'>17) Como lavar as mãos corretamente?</h2>
-                <p>As mãos devem ser lavadas com água e sabão, ou higienizadas com álcool. A recomendação é que a higiene seja completa, inclua a parte inferior da ponta das unhas e alcance também a região do pulso.</p>
+                <p>Siga o passo a passo a seguir para lavar as mãos corretamente:</p>
+
+                {/* *****TERMINAR DE ESCREVER O PASSO A PASSO E ARRUMAR O CSS***** */}
+                <img src={lavarMão1} className="lavarMão" alt="Molhe as mãos"/> <p>Molhe as mãos</p>
+                <img src={lavarMão2} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão3} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão4} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão5} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão6} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão7} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão8} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão9} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão10} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão11} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
+                <img src={lavarMão12} className="lavarMão" alt="Molhe as mãos"/> <p>text</p>
               </div>
 
               <div className="question" id="question18">
