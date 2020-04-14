@@ -72,7 +72,7 @@ class Home extends React.Component {
               <div className="prevencao">
                 <h3><FontAwesomeIcon icon={faHandsWash} /> Higiene </h3>
                 <p><FontAwesomeIcon icon={faAngleRight} /> Lave bem as mãos com água e sabão até pelo menos metade do pulso.</p>
-                <p><FontAwesomeIcon icon={faAngleRight} /> Use álcool 70% para limpar as mãos.</p>
+                <p><FontAwesomeIcon icon={faAngleRight} /> Use álcool em gel 70% para limpar as mãos.</p>
                 <p><FontAwesomeIcon icon={faAngleRight} /> Evite tocar nariz, olhos e boca antes de limpar as mãos.</p>
                 <p><FontAwesomeIcon icon={faAngleRight} /> Limpe com álcool objetos tocados frequentemente como o celular.</p>
               </div>
@@ -83,14 +83,14 @@ class Home extends React.Component {
                 <p><FontAwesomeIcon icon={faAngleRight} /> Utilize lenço descartável quando estiver com nariz escorrendo. Jogue-o fora logo após o uso.</p>
                 <p><FontAwesomeIcon icon={faAngleRight} /> Lembre-se de lavar as mãos após tossir ou espirrar.</p>
                 <p><FontAwesomeIcon icon={faAngleRight} /> Use máscara caso apresente sintomas.</p>
-                <p><FontAwesomeIcon icon={faAngleRight} /> Evite sair de casa, caso apresente algum sintoma da gripe.</p>
+                <p><FontAwesomeIcon icon={faAngleRight} /> Evite sair de casa.</p>
               </div>
 
               <div className="prevencao">
                 <h3><FontAwesomeIcon icon={faHandshake} /> Contato Físico </h3>
                 <p><FontAwesomeIcon icon={faAngleRight} /> Evite cumprimentar com aperto de mãos, abraço ou beijo no rosto.</p>
                 <p><FontAwesomeIcon icon={faAngleRight} /> Evite multidões.</p>
-                <p><FontAwesomeIcon icon={faAngleRight} /> Manter a distância de um metro de pessoas espirrando ou tossindo.</p>
+                <p><FontAwesomeIcon icon={faAngleRight} /> Manter a distância de pelo menos um metro de pessoas espirrando ou tossindo.</p>
               </div>
             </div>
           </section>

@@ -47,12 +47,34 @@ html{scroll-behavior:smooth;}
 .question{
     text-align: left;
     align-items: center;
-    margin: 50px 280px;
-    width: 50%;
+    margin: 50px 270px;
+    width: 55%;
 }
 
 .question p{
     text-indent: 0px;
+}
+
+.laveMao-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.laveMao-p{
+  text-align: center;
+  font-size: 1.0rem;
+  color: #311339;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.laveMao-p img{
+  width: 150px;
+}
+
+.laveMao-p p{
+  width: 155px;
 }
 
 @media(max-width: 1180px){
@@ -61,8 +83,8 @@ html{scroll-behavior:smooth;}
         width: 70%;
     }
     .question{
-        margin: 50px 230px;
-        width: 63%;
+        margin: 50px 200px;
+        width: 64%;
     }
 }
 

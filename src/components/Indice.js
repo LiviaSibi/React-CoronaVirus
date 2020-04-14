@@ -19,21 +19,20 @@ class Indice extends React.Component{
           <li className="indice-li"><HashLink to='/faq#question10'> 10) Qual é o tempo de incubação do Covid-19?</HashLink></li>
           <li className="indice-li"><HashLink to='/faq#question11'> 11) Qual é a definição de caso suspeito?</HashLink></li>
           <li className="indice-li"><HashLink to='/faq#question12'> 12) O coronavírus pode matar?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question13'> 13) Quanto tempo o novo coronavirus sobrevive no ambiente?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question14'> 14) Quanto tempo o novo coronavírus sobrevive em uma superfície ou no ar?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question15'> 15) Quem deve usar máscara? Ela protege do coronavírus?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question16'> 16) Usar luvas seria uma boa ideia?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question17'> 17) Como lavar as mãos corretamente?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question18'> 18) Existe algum remédio para combater o coronavírus?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question19'> 19) Qual(is) remédio(s) a pessoa com COVID-19 deve tomar?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question20'> 20) Existe vacina para prevenção ao coronavírus?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question21'> 21) Grávidas correm mais riscos?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question22'> 22) Como proteger as pessoas idosas da Covid-19?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question23'> 23) Posso visitar meus amigos?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question24'> 24) Bichos de estimação podem transmitir o coronavírus?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question25'> 25) Quanto tempo deve durar a quarentena?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question26'> 26) Como manter a rotina de esportes?</HashLink></li>
-          <li className="indice-li"><HashLink to='/faq#question27'> 27) Celular é perigoso? É importante higienizá-lo também?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question13'> 13) Quanto tempo o novo coronavírus sobrevive em uma superfície ou no ar?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question14'> 14) Quem deve usar máscara? Ela protege do coronavírus?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question15'> 15) Usar luvas é aconselhável também?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question16'> 16) Como lavar as mãos corretamente?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question17'> 17) Existe algum remédio para combater o coronavírus?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question18'> 18) Qual(is) remédio(s) a pessoa com COVID-19 deve tomar?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question19'> 19) Existe vacina para prevenção ao coronavírus?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question20'> 20) Grávidas correm mais riscos?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question21'> 21) Como proteger as pessoas idosas da Covid-19?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question22'> 22) Posso visitar meus amigos?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question23'> 23) Bichos de estimação podem transmitir o coronavírus?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question24'> 24) Quanto tempo deve durar a quarentena?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question25'> 25) É importante a prática de exercícios físicos?</HashLink></li>
+          <li className="indice-li"><HashLink to='/faq#question26'> 26) Celular é perigoso? É importante higienizá-lo também?</HashLink></li>
         </ul>
       </div>
     );

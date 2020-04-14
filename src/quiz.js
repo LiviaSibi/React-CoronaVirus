@@ -67,21 +67,23 @@ class Quiz extends React.Component {
 
   render() {
     const { hasFebre, hasSintomas, hasMedicamento, hasMelhora, hasSintomasGraves, isGrupodeRisco } = this.state;
-    const hasSintomasBasicos = [hasFebre, hasSintomas, hasSintomasGraves];
-    const hasAllSintomas = [hasSintomas, hasSintomasGraves];
-    const form = [hasFebre, hasSintomas, hasMedicamento, hasMelhora, hasSintomasGraves, isGrupodeRisco];
+    const allForm = [hasFebre, hasSintomas, hasMedicamento, hasMelhora, hasSintomasGraves, isGrupodeRisco];
+    const basicForm = [hasFebre, hasSintomas, hasSintomasGraves, isGrupodeRisco];
+    const hasAllSintomas = [hasFebre, hasSintomas, hasSintomasGraves];
+    const hasSintomasBasicos = [hasSintomas, hasSintomasGraves];
     let message = '';
 
     const showMessageCasoSuspeito = 
       (hasFebre && hasSintomasGraves && isGrupodeRisco) 
-      || (hasSintomasBasicos.every(isTrue) && hasMedicamento && !hasMelhora) 
-      || (hasAllSintomas.every(isTrue) && hasMedicamento);
+      || (hasAllSintomas.every(isTrue) && hasMedicamento && !hasMelhora) 
+      || (hasSintomasBasicos.every(isTrue) && hasMedicamento);
 
-    const showMessageFiqueAlerta = (hasSintomas && hasMedicamento && !hasMelhora) || (hasFebre && hasSintomas) || (hasAllSintomas.every(isTrue));
+    const showMessageFiqueAlerta = (hasSintomas && hasMedicamento && !hasMelhora) || (hasFebre && hasSintomas) 
+      || (hasSintomasBasicos.every(isTrue));
 
-    const showMessageTudoBem = (hasSintomasBasicos.every(isFalse));
+    const showMessageTudoBem = (hasAllSintomas.every(isFalse));
 
-    const showMessageInvalido = form.every(isNull) || [hasFebre, hasSintomas, hasSintomasGraves, isGrupodeRisco].some(isNull);
+    const showMessageInvalido = allForm.every(isNull) || basicForm.some(isNull);
     
     if(showMessageCasoSuspeito){
       message = <CasoSuspeito />
