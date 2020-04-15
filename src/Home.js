@@ -6,7 +6,6 @@ import saliva from './Imagem/saliva.png';
 import contato from './Imagem/contato.png';
 import contatoObjetos from './Imagem/contatoObjetos.png';
 import './App.css';
-import Footer from './components/Footer.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faToiletPaper, faHandsWash, faHandshake, faHeadSideMask, faHeadSideCough, faThermometerFull, faDiagnoses, faBoxTissue, faLungsVirus, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -123,9 +122,6 @@ class Home extends React.Component {
             </div>
           </section>
         </main>
-
-        <Footer />
-
       </div>
     );
   }

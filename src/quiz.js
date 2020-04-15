@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './components/Footer.js';
 import Popup from "reactjs-popup";
 import './quiz.css';
 import {CasoSuspeito, FiqueAlerta, TudoBem, Invalido, FiqueEmCasa} from './components/PopupMessage.js'
@@ -204,7 +203,6 @@ class Quiz extends React.Component {
             </Popup>
           </div>
         </main>
-        <Footer />
       </div>
     );
   }

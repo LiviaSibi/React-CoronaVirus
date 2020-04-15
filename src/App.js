@@ -5,6 +5,7 @@ import Home from './Home';
 import FAQ from './FAQ';
 import quiz from './quiz';
 import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
 
           <Route exact path="/quiz" component={quiz}/>
         </Switch>
+
+        <Footer/>
       </Router>
     </div>
     );
