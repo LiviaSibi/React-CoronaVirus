@@ -5,6 +5,35 @@ import { HashLink } from 'react-router-hash-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVirus } from '@fortawesome/free-solid-svg-icons';
 
+const hashLinkList = [
+  {
+    id:'/home#introducao',
+    text: ' O que é? '
+  },
+  {
+    id:'/home#transmissao',
+    text: ' Transmissão '
+  },
+  {
+    id:'/home#prevencao',
+    text: ' Prevenção '
+  },
+  {
+    id:'/home#sintomas',
+    text: ' Sintomas '
+  }
+]
+const linkList = [
+  {
+    id:'/faq',
+    text: 'Perguntas & Respostas'
+  },
+  {
+    id:'/quiz',
+    text: 'O que fazer?'
+  }
+]
+
 class Header extends React.Component{
 
   constructor() {
@@ -43,20 +72,15 @@ class Header extends React.Component{
               <div className="button" onClick={this.showMenu}> Sobre o Vírus </div>
               { this.state.displayMenu ? (
                 <ul>
-                  <li><HashLink to='/home#introducao'> O que é? </HashLink></li>
-                  <li><HashLink to='/home#transmissao'> Transmissão </HashLink></li>
-                  <li><HashLink to='/home#prevencao'> Prevenção </HashLink></li>
-                  <li><HashLink to='/home#sintomas'> Sintomas </HashLink></li>
-                  <li className="mobile"><Link to='/faq'>Perguntas & Respostas</Link></li>
-                  <li className="mobile"><Link to='/quiz'>O que fazer?</Link></li>
+                  {hashLinkList.map((el) => <li key={el.id}><HashLink to={el.id}>{el.text}</HashLink></li>)}
+                  {linkList.map((el) => <li className="mobile" key={el.id}><Link to={el.id}>{el.text}</Link></li>)}
                 </ul>
               ) : ( null )
               }
             </div>
             <div className="nav-continuation">
               <ul style={{position: 'absolute', boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)'}}>
-                <li><Link to='/faq'>Perguntas & Respostas</Link></li>
-                <li><Link to='/quiz'>O que fazer?</Link></li>
+                {linkList.map((el) => <li key={el.id}><Link to={el.id}>{el.text}</Link></li>)}
               </ul>
             </div>
           </nav>
