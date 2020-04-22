@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router, Redirect} from 'react-router-dom';
 import Home from './Home';
 import FAQ from './FAQ';
 import quiz from './quiz';
@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Redirect exact from="/" to="/home" />
         <Header/>
 
         <Switch>
