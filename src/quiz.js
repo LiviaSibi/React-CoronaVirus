@@ -193,7 +193,7 @@ class Quiz extends React.Component {
             <Popup trigger={<button className="enviar"> Enviar </button>} modal>
               {close => (
                 <div className="modal">
-                  <a className="close" onClick={close} href='#'>
+                  <a className="close" onClick={close} href='/quiz'>
                     &times;
                   </a>
                   {message}

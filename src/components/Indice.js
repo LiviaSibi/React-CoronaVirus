@@ -115,7 +115,7 @@ class Indice extends React.Component{
       <div className="indice-quiz">
         <ul className="indice-ul">
           {indiceList.map((el) => 
-            <li className="indice-li"><HashLink to={el.id}>{el.question}</HashLink></li>
+            <li className="indice-li" key={el.id}><HashLink to={el.id}>{el.question}</HashLink></li>
           )}
         </ul>
       </div>

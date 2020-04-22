@@ -317,7 +317,7 @@ class Faq extends React.Component{
             {faqList.map((el) => 
               <div className="question" id={el.id} key={el.id}>
                 <h2 className='faq-h2'>{el.question}</h2>
-                <p>{el.answer}</p>
+                <div>{el.answer}</div>
               </div>)}
           </div>
         </main>

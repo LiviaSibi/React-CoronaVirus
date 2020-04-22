@@ -11,10 +11,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Redirect exact from="/" to="/home" />
         <Header/>
 
         <Switch>
+          <Redirect exact from="/" to="/home" />
           <Route strict path='/home' component={Home} />
           
           <Route exact path="/faq" component={FAQ}/>

@@ -144,6 +144,8 @@ label{
 .close {
     cursor: pointer;
     position: absolute;
+    text-decoration: none;
+    color: black;
     display: block;
     padding: 2px 5px;
     line-height: 20px;

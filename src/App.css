@@ -115,6 +115,17 @@ h2{
   .container{
     width: 60%;
   }
+  
+  .prevencao{
+    width: auto;
+    margin: 4em;
+  }
+}
+
+@media(max-width: 750px){
+  .sintomas{
+    padding: 1px;
+  }
 }
 
 @media(max-width: 650px){
@@ -124,5 +135,16 @@ h2{
 
   .container{
     width: 60%;
+  }
+}
+
+@media(max-width: 550px){
+  h2{
+    margin: -1px 80px;
+  }
+
+  .prevencao{
+    width: auto;
+    margin: 2em;
   }
 }
