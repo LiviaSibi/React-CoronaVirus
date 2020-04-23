@@ -1,18 +1,7 @@
 import React from 'react';
 import Indice from './components/Indice.js';
+import LavarAMao from './components/laveMao.js';
 import './components/Indice.css';
-import lavarMão1 from './Imagem/LavarMão1.PNG';
-import lavarMão2 from './Imagem/LavarMão2.PNG';
-import lavarMão3 from './Imagem/LavarMão3.PNG';
-import lavarMão4 from './Imagem/LavarMão4.PNG';
-import lavarMão5 from './Imagem/LavarMão5.PNG';
-import lavarMão6 from './Imagem/LavarMão6.PNG';
-import lavarMão7 from './Imagem/LavarMão7.PNG';
-import lavarMão8 from './Imagem/LavarMão8.PNG';
-import lavarMão9 from './Imagem/LavarMão9.PNG';
-import lavarMão10 from './Imagem/LavarMão10.PNG';
-import lavarMão11 from './Imagem/LavarMão11.PNG';
-import lavarMão12 from './Imagem/LavarMão12.PNG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -118,8 +107,8 @@ const faqList =[
     answer: 
       <div>
         <p>Podem ser considerados suspeitos os casos que se enquadrem em uma dessas duas situações:</p>
-        <p><strong>1)</strong> indivíduos que voltaram de qualquer viagem internacional e, em até 14 dias, apresentaram febre e pelo menos um sintoma respiratório; </p>
-        <p><strong>2)</strong> contato próximo com caso suspeito ou confirmado para Covid-19, nos últimos 14 dias, e que apresente febre ou algum sintoma respiratório, como tosse, dificuldade para respirar, produção de escarro, congestão nasal, coriza, por exemplo.</p>
+        <p>1) indivíduos que voltaram de qualquer viagem internacional e, em até 14 dias, apresentaram febre e pelo menos um sintoma respiratório; </p>
+        <p>2) contato próximo com caso suspeito ou confirmado para Covid-19, nos últimos 14 dias, e que apresente febre ou algum sintoma respiratório, como tosse, dificuldade para respirar, produção de escarro, congestão nasal, coriza, por exemplo.</p>
       </div>
   },
   {
@@ -157,11 +146,11 @@ const faqList =[
         <p><FontAwesomeIcon icon={faCircle} size="xs" style={{fontSize: '0.4rem', marginBottom: '0.2rem'}}/> Use máscara caso precise sair de casa.</p>
         <br/>
         <p><strong>O jeito certo de usar as máscaras descartáveis: </strong></p>
-        <p><strong>1)</strong> Antes de colocá-la, higienize as mãos com água e sabão ou álcool em gel;</p>
-        <p><strong>2)</strong> Cubra a boca e o nariz com a máscara e se certifique de que não há espaços entre o acessório e o rosto;</p>
-        <p><strong>3)</strong> Evite tocar a máscara enquanto estiver usando-a;</p>
-        <p><strong>4)</strong> Quando a máscara estiver úmida, troque-a por uma nova. Não reutilize!</p>
-        <p><strong>5)</strong> Na hora de removê-la, faça isso pelos elásticos. Ou seja, não toque na parte da frente do acessório. Descarte-a imediatamente em uma lixeira fechada. Higienize as mãos com água e sabão ou álcool em gel.</p>
+        <p>1) Antes de colocá-la, higienize as mãos com água e sabão ou álcool em gel;</p>
+        <p>2) Cubra a boca e o nariz com a máscara e se certifique de que não há espaços entre o acessório e o rosto;</p>
+        <p>3) Evite tocar a máscara enquanto estiver usando-a;</p>
+        <p>4) Quando a máscara estiver úmida, troque-a por uma nova. Não reutilize!</p>
+        <p>5) Na hora de removê-la, faça isso pelos elásticos. Ou seja, não toque na parte da frente do acessório. Descarte-a imediatamente em uma lixeira fechada. Higienize as mãos com água e sabão ou álcool em gel.</p>
       </div>
   },
   {
@@ -178,44 +167,7 @@ const faqList =[
     answer: 
       <div>
         <p>Siga o passo a passo a seguir para lavar as mãos corretamente:</p>
-        <div className="laveMao-container">
-          <div className="laveMao-p">
-            <img src={lavarMão1} className="lavarMão" alt="Molhe as mãos"/> <p>Molhe as mãos</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão2} className="lavarMão" alt="Molhe as mãos"/> <p>Aplique sabão</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão3} className="lavarMão" alt="Molhe as mãos"/> <p>Esfregue as palmas</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão4} className="lavarMão" alt="Molhe as mãos"/> <p>Esfregue por 20 segundos</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão5} className="lavarMão" alt="Molhe as mãos"/> <p>Esfregue entre os dedos</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão6} className="lavarMão" alt="Molhe as mãos"/> <p>Esfregue os dedos na palma das mãos</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão7} className="lavarMão" alt="Molhe as mãos"/> <p>Esfregue os dedões</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão8} className="lavarMão" alt="Molhe as mãos"/> <p>Lave a ponta dos dedos e unhas</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão9} className="lavarMão" alt="Molhe as mãos"/> <p>Retire o sabão com água</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão10} className="lavarMão" alt="Molhe as mãos"/> <p>Seque com papel</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão11} className="lavarMão" alt="Molhe as mãos"/> <p>Use o papel para fechar a torneira</p>
-          </div>
-          <div className="laveMao-p">
-            <img src={lavarMão12} className="lavarMão" alt="Molhe as mãos"/> <p>Tudo Limpo!</p>
-          </div>
-        </div>
+        <LavarAMao />
       </div>
   },
   {
